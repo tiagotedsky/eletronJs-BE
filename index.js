@@ -2,11 +2,16 @@ const express = require("express");
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
-app.get("/", (req, res) =>
-  res.send("Everyone in the world can read this message.")
-);
+app.get("/", (req, res) => {
+  console.log("LOG 1 ->", process.env.auth0Domain);
+  console.log("LOG 2 ->", process.env.apiIdentifier);
+
+  res.send("Everyone in the world can read this message.");
+});
 
 app.get("/public", (req, res) =>
   res.send("Everyone in the world can read this message.")
@@ -33,4 +38,4 @@ app.get("/private", (req, res) =>
   res.send("Only authenticated users can read this message.")
 );
 
-app.listen(3000, () => console.log("Example app listening on port 3000!"));
+app.listen(PORT, () => console.log("Example app listening on port 3000!"));

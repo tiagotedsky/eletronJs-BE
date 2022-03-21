@@ -7,9 +7,6 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.get("/", (req, res) => {
-  console.log("LOG 1 ->", process.env.auth0Domain);
-  console.log("LOG 2 ->", process.env.apiIdentifier);
-
   res.send("Everyone in the world can read this message.");
 });
 

@@ -4,6 +4,10 @@ const jwksRsa = require("jwks-rsa");
 
 const app = express();
 
+app.get("/", (req, res) =>
+  res.send("Everyone in the world can read this message.")
+);
+
 app.get("/public", (req, res) =>
   res.send("Everyone in the world can read this message.")
 );
